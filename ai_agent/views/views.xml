@@ -19,8 +19,8 @@
         </field>
     </record>
 
-    <record id="view_ai_agent_record_tree" model="ir.ui.view">
-        <field name="name">ai.agent.record.tree</field>
+    <record id="view_ai_agent_record_list" model="ir.ui.view">
+        <field name="name">ai.agent.record.list</field>
         <field name="model">ai.agent.record</field>
         <field name="arch" type="xml">
             <tree>
