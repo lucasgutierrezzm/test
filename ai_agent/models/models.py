@@ -30,7 +30,18 @@ class AIAgentRecord(models.Model):
         }
 
         for record in self:
-            prompt = f"Resume el siguiente texto en pocas líneas:\n\n{record.input_text}"
+            prompt = f"""
+                    Eres un asistente que resume documentación técnica.
+                    
+                    INSTRUCCIONES:
+                    - No repitas el texto original.
+                    - No incluyas comandos de consola.
+                    - Extrae solo la idea principal.
+                    - Máximo 3 líneas.
+                    
+                    TEXTO:
+                    {record.input_text}
+                    """
 
             payload = {
                 "contents": [
