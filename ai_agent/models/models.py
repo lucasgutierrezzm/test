@@ -23,7 +23,7 @@ class AIAgentRecord(models.Model):
                 record.ai_summary = text[:150] + "..." if len(text) > 150 else text
             return
 
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key={api_key}"
+        url = f"https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key={api_key}"
 
 
         headers = {
