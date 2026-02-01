@@ -16,11 +16,11 @@ class AIAgentRecord(models.Model):
     def action_generate_summary(self):
         # ADMINISTRACIÓN DIRECTA DE LA CLAVE
         # Asegúrate de que no haya espacios dentro de las comillas
-        api_key = "AIzaSyDUUx6o6QQ9-HvBWQU1q9Vrc-e9UQenwK4".strip()
+        api_key = "AIzaSyD-23uEY1gEqG_31WrcxNc5EneXA31_cTE".strip()
 
         # URL usando v1beta (que suele ser más flexible con Flash)
         # Importante: El modelo es 'gemini-1.5-flash' sin el '-latest'
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
+        url = f"https://generativelanguage.googleapis.com/v1/models/gemini-1.5-pro:generateContent?key={api_key}"
 
         headers = {
             "Content-Type": "application/json",
