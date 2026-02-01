@@ -1,49 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- FORM -->
     <record id="view_ai_agent_record_form" model="ir.ui.view">
         <field name="name">ai.agent.record.form</field>
         <field name="model">ai.agent.record</field>
         <field name="arch" type="xml">
-            <form string="AI Agent">
+            <form string="Registro IA">
                 <sheet>
                     <group>
                         <field name="name"/>
-                        <field name="input_text"/>
-                        <button name="action_generate_summary"
-                                string="Generar resumen con IA"
-                                type="object"
-                                class="btn-primary"/>
-                        <field name="ai_summary" readonly="1"/>
                     </group>
+                    <group>
+                        <field name="input_text" widget="text"/>
+                    </group>
+                    <group>
+                        <!-- Este es el cambio importante -->
+                        <field name="ai_summary" widget="text" 
+                               options="{'rows': 5}" 
+                               readonly="1"/>
+                    </group>
+                    <footer>
+                        <button name="action_generate_summary" 
+                                string="Generar resumen con IA" 
+                                type="object" 
+                                class="btn-primary"/>
+                    </footer>
                 </sheet>
             </form>
         </field>
     </record>
-
-    <!-- LIST (ANTES TREE) -->
-    <record id="view_ai_agent_record_list" model="ir.ui.view">
-        <field name="name">ai.agent.record.list</field>
-        <field name="model">ai.agent.record</field>
-        <field name="arch" type="xml">
-            <list>
-                <field name="name"/>
-                <field name="ai_summary"/>
-            </list>
-        </field>
-    </record>
-
-    <!-- ACTION -->
-    <record id="action_ai_agent_records" model="ir.actions.act_window">
-        <field name="name">Registros IA</field>
-        <field name="res_model">ai.agent.record</field>
-        <field name="view_mode">list,form</field>
-    </record>
-
-    <!-- MENUS -->
-    <menuitem id="menu_ai_agent_root" name="AI Agent"/>
-    <menuitem id="menu_ai_agent_records"
-              name="Registros IA"
-              parent="menu_ai_agent_root"
-              action="action_ai_agent_records"/>
 </odoo>
-
