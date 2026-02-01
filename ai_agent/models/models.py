@@ -20,7 +20,7 @@ class AIAgentRecord(models.Model):
 
         # URL usando v1beta (que suele ser más flexible con Flash)
         # Importante: El modelo es 'gemini-1.5-flash' sin el '-latest'
-        model_name = "gemini-1.5-flash"
+        model_name = "gemini-pro"
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={api_key}"
 
         headers = {
