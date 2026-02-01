@@ -6,6 +6,12 @@
         <field name="model">ai.agent.record</field>
         <field name="arch" type="xml">
             <form string="Registro IA">
+                <header>
+                    <button name="action_generate_summary" 
+                            string="Generar resumen con IA" 
+                            type="object" 
+                            class="btn-primary"/>
+                </header>
                 <sheet>
                     <group>
                         <field name="name"/>
@@ -18,12 +24,6 @@
                                options="{'rows': 5}" 
                                readonly="1"/>
                     </group>
-                    <footer>
-                        <button name="action_generate_summary" 
-                                string="Generar resumen con IA" 
-                                type="object" 
-                                class="btn-primary"/>
-                    </footer>
                 </sheet>
             </form>
         </field>
