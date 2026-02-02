@@ -40,7 +40,9 @@ class AIAgentRecord(models.Model):
                     }
                 ],
                 "generationConfig": {
-                    "maxOutputTokens": 800
+                    "maxOutputTokens": 800,
+                    "temperature": 0.7,
+                    "topP": 0.9
                 }
             }
 
