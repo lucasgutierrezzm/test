@@ -16,7 +16,7 @@ class AIAgentRecord(models.Model):
     def action_generate_summary(self):
         # ADMINISTRACIÓN DIRECTA DE LA CLAVE
         # Asegúrate de que no haya espacios dentro de las comillas
-        api_key = "AIzaSyASvX1aFtcIw_ygoCjUONyPA2l-vymtlnc".strip()
+        api_key = "AIzaSyDUUx6o6QQ9-HvBWQU1q9Vrc-e9UQenwK4".strip()
 
         # URL usando v1beta (que suele ser más flexible con Flash)
         # Importante: El modelo es 'gemini-1.5-flash' sin el '-latest'
