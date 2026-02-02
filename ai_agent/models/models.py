@@ -40,7 +40,7 @@ class AIAgentRecord(models.Model):
                     }
                 ],
                 "generationConfig": {
-                    "maxOutputTokens": 200
+                    "maxOutputTokens": 800
                 }
             }
 
