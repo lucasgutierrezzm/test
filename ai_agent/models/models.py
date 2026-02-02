@@ -35,7 +35,7 @@ class AIAgentRecord(models.Model):
                 "contents": [
                     {
                         "parts": [
-                            {"text": f"Resume en 3 líneas: {record.input_text}"}
+                            {"text": f"Haz un resumen completo, claro y detallado del siguiente texto, incluyendo contexto, personajes principales y propósito de la obra:\n\n{record.input_text}"}
                         ]
                     }
                 ],
