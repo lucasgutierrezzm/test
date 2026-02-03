@@ -15,7 +15,7 @@ class AIRMInventoryController(http.Controller):
     interacciones adicionales con el módulo desde aplicaciones externas.
     """
     
-    @http.route('/ai_crm_inventory/test', type='json', auth='user', methods=['POST'])
+    @http.route('/ai_crm_inventory/test', type='jsonrpc', auth='user', methods=['POST'])
     def test_integration(self, **kwargs):
         """
         Endpoint de prueba para verificar que el módulo esté funcionando correctamente.
@@ -35,3 +35,4 @@ class AIRMInventoryController(http.Controller):
                 'success': False,
                 'message': str(e)
             }
+
