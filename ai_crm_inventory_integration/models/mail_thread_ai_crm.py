@@ -266,6 +266,3 @@ class AICRMInventoryHelper(models.AbstractModel):
                 'success': False,
                 'message': f'Error al consultar disponibilidad: {str(e)}'
             }
-
-                'message': f'Error al consultar disponibilidad: {str(e)}'
-            }
