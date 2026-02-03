@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_ai_inventory_crm_ai_inventory_crm,ai_inventory_crm.ai_inventory_crm,model_ai_inventory_crm_ai_inventory_crm,base.group_user,1,1,1,1
+access_ai_inventory_crm,access_ai_inventory_crm,model_ai_inventory_crm_logic,,1,0,0,0
+

@@ -1,0 +1,35 @@
+from odoo import models
+
+class AIInventoryCRMLogic(models.Model):
+    _name = 'ai.inventory.crm.logic'
+    _description = 'AI Inventory CRM Bridge Logic'
+
+    def process_message(self, channel, text):
+        product = self._find_product(text)
+        if not product:
+            return
+
+        stock = product.qty_available
+
+        if self._has_commercial_intent(text):
+            lead = self.env['crm.lead'].create({
+                'name': f'Interés en {product.display_name}',
+                'description': (
+                    f'Consulta IA:\n{text}\n\n'
+                    f'Stock disponible: {stock}'
+                ),
+            })
+
+            channel.message_post(
+                body=f"📌 Lead creado en CRM por interés en {product.display_name}."
+            )
+
+    def _find_product(self, text):
+        return self.env['product.product'].search(
+            [('name', 'ilike', text)],
+            limit=1
+        )
+
+    def _has_commercial_intent(self, text):
+        keywords = ['comprar', 'cotizar', 'precio', 'cliente']
+        return any(k in text.lower() for k in keywords)
