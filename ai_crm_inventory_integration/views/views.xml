@@ -33,7 +33,7 @@
 
                 <block title="Configuración">
 
-                    <div class="alert alert-info" role="alert">
+                    <div class="alert alert-info" role="status">
                         <h4 class="alert-heading">Pasos para usar esta funcionalidad</h4>
                         <ol>
                             <li>Crea una Acción del Servidor en Ajustes → Técnico → Acciones</li>
@@ -56,10 +56,10 @@
 
         <!-- Submenu de configuración -->
         <menuitem id="menu_ai_crm_inventory_config"
-                  name="Configuración"
-                  parent="menu_ai_crm_inventory_root"
-                  action="base.action_res_config_settings"
-                  sequence="100"
-                  groups="base.group_system"/>
+          name="Configuración"
+          parent="menu_ai_crm_inventory_root"
+          action="base.action_settings"
+          sequence="100"
+          groups="base.group_system"/>
     </data>
 </odoo>
