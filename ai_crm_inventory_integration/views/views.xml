@@ -53,13 +53,5 @@
         </xpath>
     </field>
 </record>
-
-        <!-- Submenu de configuración -->
-        <menuitem id="menu_ai_crm_inventory_config"
-          name="Configuración"
-          parent="menu_ai_crm_inventory_root"
-          action="base.action_settings"
-          sequence="100"
-          groups="base.group_system"/>
     </data>
 </odoo>
