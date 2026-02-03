@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <!-- Menú principal del módulo (opcional, para configuración) -->
+        <!-- Menú principal del módulo -->
         <menuitem id="menu_ai_crm_inventory_root"
                   name="AI CRM Integration"
                   sequence="100"
                   web_icon="ai_crm_inventory_integration,static/description/icon.png"
                   groups="base.group_system"/>
 
-        <!-- Vista de configuración (placeholder para futuras extensiones) -->
+        <!-- Vista de configuración -->
         <record id="view_ai_crm_config_form" model="ir.ui.view">
             <field name="name">ai.crm.config.form</field>
             <field name="model">res.config.settings</field>
             <field name="inherit_id" ref="base.res_config_settings_view_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//div[hasclass('settings')]" position="inside">
-                    <div class="app_settings_block" data-string="AI CRM Integration" 
+                <xpath expr="//div[hasclass('o_settings_container')]" position="inside">
+                    <div class="app_settings_block" data-string="AI CRM Integration"
                          string="AI CRM Integration" data-key="ai_crm_inventory_integration">
                         <h2>Integración de IA con CRM e Inventario</h2>
                         <div class="row mt16 o_settings_container">
@@ -26,7 +26,7 @@
                                 <div class="o_setting_right_pane">
                                     <label for="module_ai_crm_inventory_integration"/>
                                     <div class="text-muted">
-                                        Permite al agente de IA crear oportunidades en CRM 
+                                        Permite al agente de IA crear oportunidades en CRM
                                         basadas en consultas de productos del inventario
                                     </div>
                                 </div>
@@ -43,7 +43,7 @@
                                         <li>Configura tu agente de IA con el tema creado</li>
                                     </ol>
                                     <p class="mb-0">
-                                        <a href="https://www.odoo.com/documentation/19.0/applications/productivity/ai.html" 
+                                        <a href="https://www.odoo.com/documentation/19.0/applications/productivity/ai.html"
                                            target="_blank">Ver documentación completa</a>
                                     </p>
                                 </div>
@@ -61,6 +61,5 @@
                   action="base.action_res_config_settings"
                   sequence="100"
                   groups="base.group_system"/>
-
     </data>
 </odoo>
