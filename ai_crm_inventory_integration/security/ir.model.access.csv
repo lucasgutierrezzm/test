@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_mail_thread_ai_crm,mail.thread.ai.crm,mail.model_mail_thread,base.group_user,1,1,1,0
+access_ai_crm_inventory_helper_user,ai.crm.inventory.helper.user,model_ai_crm_inventory_helper,base.group_user,1,1,1,0
+access_ai_crm_inventory_helper_system,ai.crm.inventory.helper.system,model_ai_crm_inventory_helper,base.group_system,1,1,1,1
+
