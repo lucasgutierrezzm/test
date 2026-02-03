@@ -10,49 +10,49 @@
 
         <!-- Vista de configuración -->
         <record id="view_ai_crm_config_form" model="ir.ui.view">
-            <field name="name">ai.crm.config.form</field>
-            <field name="model">res.config.settings</field>
-            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
-            <field name="arch" type="xml">
-                <xpath expr="//div[hasclass('o_settings_container')]" position="inside">
-                    <div class="app_settings_block" data-string="AI CRM Integration"
-                         string="AI CRM Integration" data-key="ai_crm_inventory_integration">
-                        <h2>Integración de IA con CRM e Inventario</h2>
-                        <div class="row mt16 o_settings_container">
-                            <div class="col-12 col-lg-6 o_setting_box">
-                                <div class="o_setting_left_pane">
-                                    <field name="module_ai_crm_inventory_integration" widget="upgrade_boolean"/>
-                                </div>
-                                <div class="o_setting_right_pane">
-                                    <label for="module_ai_crm_inventory_integration"/>
-                                    <div class="text-muted">
-                                        Permite al agente de IA crear oportunidades en CRM
-                                        basadas en consultas de productos del inventario
-                                    </div>
-                                </div>
-                            </div>
+    <field name="name">ai.crm.config.form</field>
+    <field name="model">res.config.settings</field>
+    <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+    <field name="priority" eval="90"/>
+    <field name="arch" type="xml">
+        <xpath expr="//form" position="inside">
+
+            <app name="ai_crm_inventory_integration" string="AI CRM Integration">
+
+                <block title="Integración de IA con CRM e Inventario">
+
+                    <setting string="Activar integración IA-CRM">
+                        <field name="module_ai_crm_inventory_integration" widget="upgrade_boolean"/>
+                        <div class="text-muted">
+                            Permite al agente de IA crear oportunidades en CRM
+                            basadas en consultas de productos del inventario.
                         </div>
-                        <div class="row mt32">
-                            <div class="col-12">
-                                <div class="alert alert-info" role="alert">
-                                    <h4 class="alert-heading">Configuración</h4>
-                                    <p>Para usar esta funcionalidad:</p>
-                                    <ol>
-                                        <li>Crea una Acción del Servidor en Ajustes → Técnico → Acciones</li>
-                                        <li>Asocia la acción a un Tema de IA</li>
-                                        <li>Configura tu agente de IA con el tema creado</li>
-                                    </ol>
-                                    <p class="mb-0">
-                                        <a href="https://www.odoo.com/documentation/19.0/applications/productivity/ai.html"
-                                           target="_blank">Ver documentación completa</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                    </setting>
+
+                </block>
+
+                <block title="Configuración">
+
+                    <div class="alert alert-info" role="alert">
+                        <h4 class="alert-heading">Pasos para usar esta funcionalidad</h4>
+                        <ol>
+                            <li>Crea una Acción del Servidor en Ajustes → Técnico → Acciones</li>
+                            <li>Asocia la acción a un Tema de IA</li>
+                            <li>Configura tu agente de IA con el tema creado</li>
+                        </ol>
+                        <p class="mb-0">
+                            <a href="https://www.odoo.com/documentation/19.0/applications/productivity/ai.html"
+                               target="_blank">Ver documentación completa</a>
+                        </p>
                     </div>
-                </xpath>
-            </field>
-        </record>
+
+                </block>
+
+            </app>
+
+        </xpath>
+    </field>
+</record>
 
         <!-- Submenu de configuración -->
         <menuitem id="menu_ai_crm_inventory_config"
