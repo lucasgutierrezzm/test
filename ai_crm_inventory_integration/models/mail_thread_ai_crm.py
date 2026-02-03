@@ -8,7 +8,7 @@ import json
 _logger = logging.getLogger(__name__)
 
 
-class AICRMInventoryHelper(models.AbstractModel):
+class AICRMInventoryHelper(models.Model):
     """
     Modelo abstracto que proporciona funcionalidad de creación automática
     de oportunidades CRM basadas en consultas de productos del inventario.
