@@ -8,12 +8,15 @@ import json
 _logger = logging.getLogger(__name__)
 
 
-class MailThreadAICRM(models.Model):
+class AICRMInventoryHelper(models.AbstractModel):
     """
-    Extiende mail.thread para agregar funcionalidad de creación automática
+    Modelo abstracto que proporciona funcionalidad de creación automática
     de oportunidades CRM basadas en consultas de productos del inventario.
+    
+    Este modelo puede ser usado por el agente de IA a través de acciones del servidor.
     """
-    _inherit = 'mail.thread'
+    _name = 'ai.crm.inventory.helper'
+    _description = 'AI CRM Inventory Integration Helper'
 
     @api.model
     def ai_create_crm_opportunity_from_products(self, product_codes, customer_name=None, 
@@ -41,7 +44,7 @@ class MailThreadAICRM(models.Model):
             No lanza excepciones, retorna un dict con success=False en caso de error
         
         Example:
-            >>> result = self.env['mail.thread'].ai_create_crm_opportunity_from_products(
+            >>> result = self.env['ai.crm.inventory.helper'].ai_create_crm_opportunity_from_products(
             ...     product_codes=['LAPTOP001', 'MOUSE002'],
             ...     customer_name='Juan Pérez',
             ...     customer_email='juan@example.com',
@@ -210,7 +213,7 @@ class MailThreadAICRM(models.Model):
             dict: Diccionario con información de disponibilidad de cada producto
         
         Example:
-            >>> result = self.env['mail.thread'].ai_get_product_availability(['LAPTOP001'])
+            >>> result = self.env['ai.crm.inventory.helper'].ai_get_product_availability(['LAPTOP001'])
             >>> print(result)
             {
                 'success': True,
@@ -261,5 +264,8 @@ class MailThreadAICRM(models.Model):
             _logger.error(f"Error al consultar disponibilidad: {str(e)}")
             return {
                 'success': False,
+                'message': f'Error al consultar disponibilidad: {str(e)}'
+            }
+
                 'message': f'Error al consultar disponibilidad: {str(e)}'
             }
