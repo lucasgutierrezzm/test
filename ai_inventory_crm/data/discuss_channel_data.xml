@@ -1,5 +1,5 @@
 <odoo>
-    <record id="ai_inventory_crm_channel" model="discuss.channel">
+    <record id="ai_inventory_crm_channel" model="mail.channel">
         <field name="name">AI Inventory CRM</field>
         <field name="channel_type">channel</field>
         <field name="public">private</field>

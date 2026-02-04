@@ -5,7 +5,6 @@
     'summary': 'Agente IA que conecta Inventario con CRM',
     'depends': [
         'base',
-        'discuss',
         'product',
         'crm',
         'mail',
