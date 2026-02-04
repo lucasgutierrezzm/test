@@ -25,10 +25,16 @@ class AIInventoryCRMLogic(models.Model):
             )
 
     def _find_product(self, text):
-        return self.env['product.product'].search(
+        ProductTemplate = self.env['product.template']
+            template = ProductTemplate.search(
             [('name', 'ilike', text)],
             limit=1
         )
+
+        if not template:
+            return False
+    
+        return template.product_variant_id
 
     def _has_commercial_intent(self, text):
         keywords = ['comprar', 'cotizar', 'precio', 'cliente']
