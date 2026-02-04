@@ -1,4 +1,4 @@
-from odoo import models, api
+"""from odoo import models, api
 from odoo.tools import html2plaintext
 import logging
 
@@ -39,3 +39,4 @@ class MailMessage(models.Model):
             _logger.error("AI MODULE ERROR: %s", e)
 
         return message
+"""
