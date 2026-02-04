@@ -12,7 +12,6 @@
     ],
     'data': [
         'security/ir.model.access.csv',
-        'data/discuss_channel_data.xml',
         'views/res_config_settings_views.xml',
     ],
     'installable': True,

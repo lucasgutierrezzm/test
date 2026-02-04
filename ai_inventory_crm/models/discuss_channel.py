@@ -1,7 +1,7 @@
 from odoo import models
 
-class MailChannel(models.Model):
-    _inherit = 'mail.channel'
+class DiscussChannel(models.Model):
+    _inherit = 'discuss.channel'
 
     def _notify_message(self, message, **kwargs):
         res = super()._notify_message(message, **kwargs)
