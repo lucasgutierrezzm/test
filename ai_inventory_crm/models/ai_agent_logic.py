@@ -7,7 +7,10 @@ class AIInventoryCRMLogic(models.Model):
     def process_message(self, channel, text):
         product = self._find_product(text)
         if not product:
+            _logger.warning("AI MODULE: no product found for text=%s", text)
             return
+
+        _logger.warning("AI MODULE: product found = %s", product.display_name)
 
         stock = product.qty_available
 
