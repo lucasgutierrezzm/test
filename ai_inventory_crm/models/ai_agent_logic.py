@@ -4,35 +4,25 @@ import logging
 _logger = logging.getLogger(__name__)
 
 
-class AIInventoryCRMLogic(models.Model):
-    _name = 'ai.inventory.crm.logic'
-    _description = 'AI Inventory CRM Bridge Logic'
+class AiAgentLogic(models.AbstractModel):
+    _name = "ai.agent.logic"
 
     def process_message(self, channel, text):
-        _logger.warning("AI MODULE: process_message called with text=%s", text)
-    
-        # 1️⃣ Primero: ¿hay intención comercial?
-        if not self._has_commercial_intent(text):
-            _logger.warning("AI MODULE: no commercial intent, ignoring message")
+        if "comprar" not in (text or "").lower():
             return
-    
-        _logger.warning("AI MODULE: commercial intent detected")
-    
-        # 2️⃣ Recién ahora buscar producto
-        product = self._find_product(text)
+
+        product = self.env["product.template"].search(
+            [("name", "ilike", text)], limit=1
+        )
         if not product:
-            _logger.warning("AI MODULE: no product found for text=%s", text)
             return
-    
-        _logger.warning("AI MODULE: product found = %s", product.display_name)
-    
-        self.env['crm.lead'].sudo().create({
-            'name': f'Interés en {product.display_name}',
-            'type': 'lead',
-            'description': text,
+
+        self.env["crm.lead"].sudo().create({
+            "name": f"Interés en {product.display_name}",
+            "type": "lead",
         })
-    
-        channel.message_post(
+
+        channel.with_context(from_ai_bot=True).message_post(
             body=f"📌 Lead creado en CRM por interés en {product.display_name}."
         )
 
