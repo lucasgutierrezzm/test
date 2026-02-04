@@ -52,5 +52,19 @@ class AIInventoryCRMLogic(models.Model):
         return False
 
     def _has_commercial_intent(self, text):
-        keywords = ['comprar', 'cotizar', 'precio', 'cliente']
-        return any(k in text.lower() for k in keywords)
+        if not text:
+            return False
+    
+        text = text.lower().strip()
+    
+        keywords = [
+            'comprar',
+            'quiero',
+            'necesito',
+            'cotizar',
+            'precio',
+            'interes',
+            'interés',
+        ]
+    
+        return any(keyword in text for keyword in keywords)
