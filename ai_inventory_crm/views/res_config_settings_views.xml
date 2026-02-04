@@ -4,12 +4,15 @@
         <field name="model">res.config.settings</field>
         <field name="inherit_id" ref="base.res_config_settings_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//div[@id='settings']" position="inside">
-                <div class="app_settings_block">
-                    <h2>AI Inventory CRM</h2>
-                    <field name="ai_api_key"/>
-                </div>
+
+            <xpath expr="//app[@name='general_settings']" position="inside">
+                <block title="AI Inventory CRM">
+                    <setting string="AI API Key">
+                        <field name="ai_api_key"/>
+                    </setting>
+                </block>
             </xpath>
+
         </field>
     </record>
 </odoo>
