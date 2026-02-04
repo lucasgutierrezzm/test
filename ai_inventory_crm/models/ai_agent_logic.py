@@ -32,18 +32,18 @@ class AIInventoryCRMLogic(models.Model):
             )
 
     def _find_product(self, text):
-    ProductTemplate = self.env['product.template']
-    words = text.lower().split()
-
-    for word in words:
-        template = ProductTemplate.search(
-            [('name', 'ilike', word)],
-            limit=1
-        )
-        if template:
-            return template.product_variant_id
-
-    return False
+        ProductTemplate = self.env['product.template']
+        words = text.lower().split()
+    
+        for word in words:
+            template = ProductTemplate.search(
+                [('name', 'ilike', word)],
+                limit=1
+            )
+            if template:
+                return template.product_variant_id
+    
+        return False
 
     def _has_commercial_intent(self, text):
         keywords = ['comprar', 'cotizar', 'precio', 'cliente']
