@@ -13,11 +13,11 @@ class MailMessage(models.Model):
 
         try:
             # Solo mensajes humanos en canales de Discuss
+            # Ignorar mensajes creados por el propio bot
             if (
                 message.model != 'discuss.channel'
                 or not message.body
-                or message.author_id.user_ids
-                and message.author_id.user_ids[0].login == '__odoobot__'
+                or message.author_id == self.env.user.partner_id
             ):
                 return message
 
